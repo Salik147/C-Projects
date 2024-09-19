@@ -14,13 +14,13 @@ Microsoft.EntityFrameWorkCore.Design
 By clicking on dependencies , manage nuget packages then brows and install
 
 
-# Execute a command for Scaffold DbContext
+# Execute a command for Scaffold DbContext 
 Scaffold-Dbcontext "server=ServerName; database=DatabaseName; trusted_connection=True;" Microsoft.EntityFrameWorkCore.SqlServer -OutputDir Models 
 
 paste the above command by opening Nuget Package Manager Console  which could be found in Tools options 
 
-# Updating Database
-Make changes in database and run the command given below
+# Updating Database (Optional)
+Make changes in database and run the command given below 
 Scaffold-Dbcontext "server=ServerName; database=DatabaseName; trusted_connection=True;" Microsoft.EntityFrameWorkCore.SqlServer -OutputDir Models -force
 
 # Moving Connecion string from db context class to appsetting.ini
@@ -43,7 +43,7 @@ builder.Services.AddDbContext<StudentDBContext>(item => item.UseSqlServer(config
 namespace will be added above as : using DatabaseFirst.Models;
 
 
-# Adding Code in Home Controller.cs
+# Adding Code in Home Controller.cs (Optional/no need actually)
 
 just add CodeFirstContext context in constructor such as:
  public HomeController(ILogger<HomeController> logger, CodeFirstdbContext context)
@@ -53,7 +53,7 @@ just add CodeFirstContext context in constructor such as:
 
 then hower the mouse cursor over context and press ctrl + . and select "create and assign field context"
 
-# Now Make views
+# Now Make views (Optional/no need actually)
 Delete already existed index view file
 add Tolist function to the IAction method of the index present in HomeController.cs from the context class through database
 
