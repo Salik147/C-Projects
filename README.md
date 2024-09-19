@@ -42,3 +42,30 @@ builder.Services.AddDbContext<StudentDBContext>(item => item.UseSqlServer(config
 
 namespace will be added above as : using DatabaseFirst.Models;
 
+
+# Adding Code in Home Controller.cs
+
+just add CodeFirstContext context in constructor such as:
+ public HomeController(ILogger<HomeController> logger, CodeFirstdbContext context)
+ {
+     _logger = logger;
+ }
+
+then hower the mouse cursor over context and press ctrl + . and select "create and assign field context"
+
+# Now Make views
+Delete already existed index view file
+add Tolist function to the IAction method of the index present in HomeController.cs from the context class through database
+
+public IActionResult Index()
+{
+    var data  = context.Students.ToList();
+    return View(data);
+}
+
+Now  right click on view and make index view with razorpage
+
+# automatic generation
+delete home controller and home folder in views
+make new controller and select "MVC controller with views and entityframwork"
+Complete crud will be generayed automatically
